@@ -1,0 +1,99 @@
+<Button>
+    size_hint:(None, None)
+    width: 70
+    height:50
+    background_normal: ''
+    background_color: (255/255, 255/255, 255/255, 1)
+    color: (90/255, 90/255, 90/255, 1)
+    on_press: self.background_color = (57/255, 68/255, 130/255, 1.0)
+    on_press: self.color = (1, 1, 1, 1.0)
+    on_release: self.color = (90/255, 90/255, 90/255, 1)
+    on_release: self.background_color = (1, 1, 1, 1)
+
+<Label>
+    font_size: 24
+
+<TextInput>
+    font_size: 24
+    background_color: (1, 1, 1, 1.0)
+    background_normal: ""
+    on_focus: self.color = (0.5, 0.5, 1, 1.0) 
+
+<CalculatorLayout>
+    expression:expression
+    BoxLayout:
+        size: root.width, root.height    
+        orientation:"vertical"
+        canvas.before:
+            Color: 
+                rgba: (1/255, 1/255, 1/255)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        TextInput:
+            id:expression
+            pos_hint: {'center_x':0.5}
+            size_hint:(1, None)
+            height: 50
+            multiline: False
+
+        GridLayout:
+            size: 100, 100
+            cols:4
+            Button:
+                on_press: root.add_symbol(self)
+                text: "("
+            Button:
+                on_press: root.add_symbol(self)
+                text: ")"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "*"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "/"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "1"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "2"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "3"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "+"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "4"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "5"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "6"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "-"            
+            Button:
+                on_press: root.add_symbol(self)
+                text: "7"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "8"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "9"
+            Label:
+            Button:
+                on_press: root.add_symbol(self) 
+                text: "Erase"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "0"
+            Button:
+                on_press: root.add_symbol(self)
+                text: "Enter"
+            Label:
